@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.2"
+    defaultConfig {
+        applicationId "android.uid.camera2"
+        minSdkVersion 23
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+
+            res.srcDirs = [
+                    '../Camera2/res',
+            ]
+
+            java.srcDirs = [
+                    'src/main/java',
+                    '../Camera2/src',
+                    '../Camera2/src_pd',
+                    '../Camera2/src_pd_gcam',
+            ]
+            manifest.srcFile '../Camera2/AndroidManifest.xml'
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':glidelib')
+    implementation project(path: ':xmplib')
+    implementation project(path: ':guavalib')
+    implementation project(path: ':jsrlib')
+    implementation project(path: ':portabilitylib')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v13:26.0.0'
+    compileOnly files('../libs/framework.jar')
+    //implementation 'com.android.support:support-v4:27.0.0-alpha1'
+    implementation 'com.android.support:appcompat-v7:26.0.0'
+
+
+
+    //testImplementation 'junit:junit:4.+'
+    //androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

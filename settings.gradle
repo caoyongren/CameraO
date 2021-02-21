@@ -1,0 +1,7 @@
+include ':portabilitylib'
+include ':jsrlib'
+include ':guavalib'
+include ':xmplib'
+include ':glidelib'
+include ':app'
+rootProject.name = "Camera2Q"
