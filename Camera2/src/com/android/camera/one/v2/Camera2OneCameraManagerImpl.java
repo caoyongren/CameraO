@@ -61,6 +61,20 @@ public class Camera2OneCameraManagerImpl implements OneCameraManager {
         return Optional.of(hardwareManager);
     }
 
+    /**
+     * CameraManager:
+     *           摄像头管理器，用于打开和关闭系统摄像头
+     *  android.hardware.camera2
+     *  getCameraIdList() ：
+     *          返回当前设备中可用的相机列表
+     *
+     * getCameraCharacteristics(String cameraId) ：
+     *          根据摄像头id返回该摄像头的相关信息
+     *
+     * openCamera(String cameraId, final CameraDevice.StateCallback callback,Handler handler)：
+     *          打开指定cameraId的相机。参数callback为相机打开时的回调，参数handler为callback被调用时所在的线程
+     *
+     * */
     private final CameraManager mCameraManager;
 
     public Camera2OneCameraManagerImpl(CameraManager cameraManger) {

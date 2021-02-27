@@ -47,6 +47,19 @@ import com.google.common.base.Optional;
 
 /**
  * The {@link com.android.camera.one.OneCameraOpener} implementation on top of Camera2 API.
+ *
+ * 实现open Camera的相关操作
+ * CameraDevice:
+ *      描述系统摄像头，类似于早期的Camera
+ * createCaptureRequest(int templateType)：
+ *      创建一个新的Capture请求
+ *
+ * createCaptureSession(List<Surface> outputs,CameraCaptureSession.StateCallback callback,
+ *      Handler handler)：
+ *      创建CaptureSession会话。第一个参数 outputs 是一个 List 数组，相机会把捕捉到的图片数据传递给该参数
+ *      中的 Surface 。第二个参数 StateCallback 是创建会话的状态回调。第三个参数描述了 StateCallback 被
+ *      调用时所在的线程
+ *
  */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class Camera2OneCameraOpenerImpl implements OneCameraOpener {
